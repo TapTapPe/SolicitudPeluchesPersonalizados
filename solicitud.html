@@ -1,0 +1,109 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" class="no-js">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>Solicitud de Presupuesto de Peluche Personalizado</title>
+<meta name="author" content="Roberto Carlos Reyes Fernandez">  
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<meta name="HandheldFriendly" content="true">
+<meta name="viewport" content="width=device-width, initial-scale=1,maximum-scale=1,user-scalable=no">
+<script src="js/jquery-1.2.3.pack.js"></script>
+<script src="js/runonload.js"></script>
+<script src="js/tutorial.js"></script>
+<script type="text/javascript" src="js/sm_filepicker.js" ></script>
+<link rel="stylesheet" type="text/css" href="css/style.css">
+
+</head>
+<body>
+<div id="contact_form">
+      <header class="body">
+      <h1>Solicitud de presupuesto de Peluches Personalizados</h1>
+      <h2>¿Quieres saber cuánto puede costar tener tu propio Peluche Personalizado?. 
+        Llena estos datos y te haremos un presupuesto sin ningún compromiso de pago. <br>
+      Si tienes dudas <a href="http://sweetmoments.pe/content/8-preguntas-frecuentes-de-peluches-personalizados" alt="Preguntas Frecuentes Sweet Moments" target="_blank">aqu&iacute;</a> puedes encontrar nuestras preguntas frecuentes <h2>
+        <h3><span class="obligatorio"> * Campo Obligatorio </span></h3>
+    </header>
+  <form name="myform" id="myform" method="post" action="">
+
+      <section>     
+        <article>
+          <label>Eliga el tipo de Peluche Personalizado<span class="obligatorio"> *</span></label>
+          <div class="styled-select">
+            <select id="tipo" name="tipo" onchange="val()">
+              <option value ="Mi Clon" selected>Mi Clon</option>
+              <option value ="Oso">Oso</option>
+              <option value ="Chanchito">Chanchito</option>
+            </select>
+            <label class="error" for="tipo" id="tipo_error">Este campo es requerido.</label> 
+          </div>
+        </article>
+        <article>
+          <label for="nombre" id="nombre_label" >Nombre Completo<span class="obligatorio"> *</span></label>
+          <input onkeydown="TestMaxLen(nombre,nombre_error,50)" onkeyup="TestMaxLen(nombre,nombre_error,50)" type="text" name="nombre" id="nombre" size="50" value="" class="text-input" placeholder="¿Cúal es tu nombre completo?"/>
+          <label class="error" for="nombre" id="nombre_error">Este campo es requerido.</label>          
+        </article>
+        <article>
+          <label for="email" id="email_label">Correo Electr&oacutenico<span class="obligatorio"> *</span></label>
+          <input onkeydown="TestMaxLen(email,email_error,300)" onkeyup="TestMaxLen(email,email_error,300)" onchange="TestMail(this.value)" type="text" name="email" id="email" size="30" value="" class="text-input" placeholder="¿Con que correo puedo comunicarme contigo?"/>
+          <label class="error" for="email" id="email_error" >Este campo es requerido.</label>          
+        </article>
+        <article>
+          <label for="phone" id="phone_label" >Tel&eacutefono<span class="obligatorio"> *</span></label>
+          <input onkeydown="TestMaxLen(phone,phone_error,25)" onkeyup="TestMaxLen(email,phone_error,25)" onchange="TestTelf(this.value)" type="text" name="phone" id="phone" size="15" value="" class="text-input" placeholder="¿Con que teléfono puedo contactarte si tengo dudas?"/>
+          <label class="error" for="phone" id="phone_error">Este campo es requerido.</label> 
+          <label class="error" for="phone" id="phone_error2">Este campo es requerido.</label> 
+        </article>
+        <article>          
+          <label>Adjunta tus fotos <div id="div_fotos"><span class="obligatorio"> *</span></div></label>
+          <button type="button" name="btn-upload" id="btn-upload"  onclick="openFilePicker()">Adjuntar fotos</button>
+          <ul id="Gallery" class="gallery">
+          </ul> 
+          <label class="error" for="btn-upload" id="btn-upload_error">Se debe enviar por lo menos una foto.</label>
+        </article>
+        <article>
+          <label for="direccion" id="direccion_label">Dirección de envío<span class="obligatorio"> *</span></label>
+          <input onkeydown="TestMaxLen(direccion,direccion_error,300)" onkeyup="TestMaxLen(direccion,direccion_error,300)" type="text" name="direccion" id="direccion" size="500" value="" class="text-input" placeholder="Indicanos la dirección y País de envío"/>
+          <label class="error" for="direccion" id="direccion_error">Este campo es requerido.</label>
+        </article>
+        <article>
+          <label for="fecha" id="fecha_label">Fecha requerida<span class="obligatorio"> *</span></label>
+          <input  onkeydown="TestMaxLen(fecha,fecha_error,40)" onkeyup="TestMaxLen(fecha,fecha_error,40)" type="text" name="fecha" id="fecha" size="500" value="" class="text-input" placeholder="Fecha en que la que te gustaría recibir el pedido"/>
+          <label class="error" for="fecha" id="fecha_error">Este campo es requerido.</label>
+        </article>
+        <article>
+          <div id="div_caracteristicas">
+          <label for="caracteristicas" id="caracteristicas_label">Caraterísticas físicas<span class="obligatorio"> *</span></label>
+          <textarea onkeydown="TestMaxLen(caracteristicas,caracteristicas_error,600)" onkeyup="TestMaxLen(caracteristicas,caracteristicas_error,600)" type="text" name="caracteristicas" id="caracteristicas" size="500" value="" class="text-input" placeholder="Cara, cabello, contextura, todos los detalles son importantes."/></textarea>
+          <label class="error" for="caracteristicas" id="caracteristicas_error">Este campo es requerido.</label>
+          </div>
+        </article>
+        <article>
+          <label for="ropa" id="ropa_label">Ropa<span class="obligatorio"> *</span></label>
+          <textarea onkeydown="TestMaxLen(ropa,ropa_error,600)" onkeyup="TestMaxLen(ropa,ropa_error,600)" type="text" name="ropa" id="ropa" size="500" value="" class="text-input" placeholder="Tipo, pantalón, camisa, casaca, color, zapatillas, otros."/></textarea>
+          <label class="error" for="ropa" id="ropa_error">Este campo es requerido.</label>
+        </article>
+        <article>
+          <label for="accesorios" id="accesorios_label">Accesorios</label>
+          <textarea onkeydown="TestMaxLen(accesorios,accesorios_error,600)" onkeyup="TestMaxLen(accesorios,accesorios_error,600)" type="text" name="accesorios" id="accesorios" size="500" value="" class="text-input" placeholder="Agregue accesorios como: celular, lentes, laptop, cigarro, cerveza, casco, sombrero, etc (Recuerda que a partir del 2do accesorio tiene un costo adicional)"/></textarea>  
+          <label class="error" for="accesorios" id="accesorios_error">Este campo es requerido.</label>        
+        </article>
+        <article>
+          <label for="observaciones" id="observaciones_label">Observaciones</label>
+          <textarea onkeydown="TestMaxLen(observaciones,observaciones_error,600)" onkeyup="TestMaxLen(observaciones,observaciones_error,600)" type="text" name="observaciones" id="observaciones" size="500" value="" class="text-input" placeholder="Si tuviera observaciones adicionales por favor indicarlas"/></textarea> 
+          <label class="error" for="observaciones" id="observaciones_error">Este campo es requerido.</label>         
+        </article>
+        <article>
+          <input type="submit" name="submit" class="button" id="submit_btn" value="Enviar" />
+        </article>
+        <article>
+          <div id="loading">
+            <img id="loading-image" src="img/loadingAnimation.gif" alt="Enviando..." />
+          </div>
+        </article>
+        </section>
+  </form>
+</div>
+</body>
+
+<script type="text/javascript" src="//api.filepicker.io/v1/filepicker.js"></script>
+</html>
